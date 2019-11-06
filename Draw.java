@@ -159,10 +159,12 @@ class Work extends JPanel {
     public void paintLose(Graphics g) {
     	Color orangeColor = new Color(255, 165, 0);
     	g.setColor(Color.black);
-    	g.fillRect(0, 0, 10000, 10000);
-    	g.setColor(orangeColor);
-        g.setFont(new Font("Comic Sans", Font.PLAIN, 20));
-        g.drawString("Game over, better luck next time", 400, 400);
+	g.fillRect(0, 0, 10000, 10000);
+	g.setColor(Color.orange);
+	g.setFont(new Font("Minecraft", Font.PLAIN, 150));
+	g.drawString("You Died", 100, 400);
+	g.setFont(new Font("Arial", Font.PLAIN, 40));
+	g.drawString("Press any key to play again", 300, 600);
     }
     
     //game won method
@@ -171,8 +173,10 @@ class Work extends JPanel {
     	g.setColor(Color.black);
     	g.fillRect(0, 0, 10000, 10000);
     	g.setColor(orangeColor);
-        g.setFont(new Font("Comic Sans", Font.PLAIN, 20));
-        g.drawString("You Win!!", 400, 400);
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 150));
+        g.drawString("You Win!!", 200, 400);
+	g.setFont(new Font("Arial", Font.PLAIN, 40));
+	g.drawString("Press any key to play again", 300, 600);
     }
 
     @Override
