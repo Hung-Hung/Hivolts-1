@@ -53,29 +53,46 @@ public class Mhos {
                         newJ = j - 1;
                     }else if ((Math.abs(playerRow - i)) > Math.abs(playerColumn - j)) {
                         // vertical distance > horizontal distance.
-                        if (playerRow > i) {
+                        if (playerRow > i && board[i+1][j]!='f') {
                             // mho is below the player. (move up.)
                             newI = i + 1;
                             newJ = j;
                         }
-                        else {
+                        else if (playerRow < i && board[i-1][j]!='f'){
                             // mho is below the player. (move down.)
                             newI = i-1;
                             newJ = j;
                         }
+                        else if (playerColumn > j){
+                        	newI = i;
+                            newJ = j+1;
+                        }
+                        else if (playerColumn < j){
+                        	newI = i;
+                            newJ = j-1;
+                        }
                     } else {
                         // horizontal distance > vertical distance.
-                        if (playerColumn > j) {
+                        if (playerColumn > j && board[i][j+1]!='f') {
                             // mho is to the left of the player. (move right.)
                             newI = i;
                             newJ = j+1;
-                        } else {
+                        } else if (playerColumn < j && board[i][j-1]!='f'){
                             // mho is to the right of the player. (move left.)
                             newI = i;
                             newJ = j-1;
                         }
+                        else if (playerRow > 'i') {
+                        	newI = i + 1;
+                        	newJ = j;
+                    	}	
+                        else if (playerRow < 'i') {
+                        	newI = i - 1;
+                        	newJ = j;
+                    	}
                     }
-
+                    
+                    //changes mhos to 't' for now
                     if (board[newI][newJ] != 'f') {
                         board[newI][newJ] = 't';
                     }
@@ -84,7 +101,8 @@ public class Mhos {
                 }
             }
         }
-
+        
+        //changes mhos back to e
         for (int i = 0; i <= 10; i++) { // finding out where the player is
             for (int j = 0; j <= 10; j++) {
                 if (board[i][j] == 't') {
